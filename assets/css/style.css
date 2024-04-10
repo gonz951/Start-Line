@@ -1,3 +1,33 @@
+:root {
+    --white: #fffefa;
+    --orange: #e6c12e;
+    --grey: #4b4949;
+}
+
 * {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+body {
+    background-color: var(--white);
+}
+
+header {
+    text-align: center;
+    padding: 25px;
+    background-color: var(--grey);
+    h1 {
+        color: var(--orange);
+        font-size: 50px;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-around;
+        a {
+            color: var(--orange);
+            font-size: 20px;
+        }
+    }
+    /* border: 2px red solid; */
 }
