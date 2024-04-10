@@ -1,6 +1,6 @@
 :root {
     --white: #fffefa;
-    --orange: #e6c12e;
+    --yellow: #e6c12e;
     --grey: #4b4949;
 }
 
@@ -17,17 +17,27 @@ header {
     padding: 25px;
     background-color: var(--grey);
     h1 {
-        color: var(--orange);
+        color: var(--yellow);
         font-size: 50px;
+        padding: 10px;
     }
 
     nav {
         display: flex;
         justify-content: space-around;
         a {
-            color: var(--orange);
+            color: var(--yellow);
             font-size: 20px;
+            text-decoration: none;
         }
     }
     /* border: 2px red solid; */
+}
+
+.nav-btn {
+    color: var(--yellow);
+}
+
+.nav-btn:hover {
+    color: var(--white);
 }
