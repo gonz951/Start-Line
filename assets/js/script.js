@@ -12,7 +12,7 @@ const formSubmitHandler = function(event) {
     const workouts = workoutInputEl.value.trim();
 
     if (workouts) {
-        getWorkouts(workouts);
+        //getWorkouts(workouts);
 
         workoutInputEl.value = '';
 
@@ -38,5 +38,10 @@ $.ajax({
         console.error('Error: ', jqXHR.responseText);
     }
 });
+
+const displayWorkout = function (result) {
+
+    console.log(result)
+}
 
 userFormEl.addEventListener('submit', formSubmitHandler);
