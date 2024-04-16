@@ -31,9 +31,11 @@ const getWorkouts = function (muscle) {
     // need to change var for user input 
     //var muscle= 'biceps'
 
+
     $.ajax({
         method: 'GET',
-        url: 'https://api.api-ninjas.com/v1/exercises?muscle=' + muscle,
+        // * Set PERMANENTLY to 'beginner'
+        url: 'https://api.api-ninjas.com/v1/exercises?muscle=' + muscle + '&difficulty=beginner',
         headers: { 'X-Api-Key': '+WGKXajBz6Z4hpQa9XjQDg==8TIctngv8D6TWbxT'},
         contentType: 'application/json',
         success: function(result_data_json) {
@@ -54,8 +56,8 @@ const displayWorkout = function (data) {
     const cardContainer = document.createElement('div');
     const cardList = document.createElement('ul');
     cardList.setAttribute('id', 'listDiv');
-    for (let index = 0; index < data.length; index++) {
-        const element = data[index];
+    for (let i = 0; i < data.length; i++) {
+        const element = data[i];
         const cardItem = document.createElement('li');
         cardItem.innerHTML = element.name
         
