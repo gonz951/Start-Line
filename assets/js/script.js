@@ -6,7 +6,6 @@ const workoutDisplayEl = document.querySelector('#workoutDisplay');
 const nutrientFormEl = document.querySelector('#nutrient-form');
 const nutrientDisplayEl = document.querySelector('#nutrientDisplay');
 
-
 // might need an element to hold the workout input
 
 const workoutFormSubmitHandler = function(event) {
@@ -51,8 +50,6 @@ const getWorkouts = function (muscle) {
 }
 
 const displayWorkout = function (data) {
-
-
     const cardContainer = document.createElement('div');
     const cardList = document.createElement('ul');
     cardList.setAttribute('id', 'listDiv');
@@ -65,9 +62,13 @@ const displayWorkout = function (data) {
         const cardEquip = document.createElement('p');
         cardEquip.innerHTML = workout.equipment
         console.log(cardEquip)
-        //cardItem.innerHTML = workout.instructions
+
+        // todo: need instructions to be hidden in an optional dropdown
+        const cardInstruct = document.createElement('p');
+        cardInstruct.innerHTML = workout.instructions
 
         cardBody.append(cardEquip)
+        cardBody.append(cardInstruct)
         cardItem.append(cardBody)
         cardList.append(cardItem)
     }
@@ -79,7 +80,7 @@ const displayWorkout = function (data) {
 
 
 
-// Nutrition 
+// Nutrition ===================
 
 const nutritionFormSubmitHandler = function(event) {
     event.preventDefault();
@@ -89,10 +90,11 @@ const nutritionFormSubmitHandler = function(event) {
     const inches = document.getElementById('inches').value
     const lbs = document.getElementById('lbs').value
     const activityLvl = document.getElementById('activity-lvl').value
-    console.log(sex)
     getNutrition(sex, age, feet, inches, lbs, activityLvl);
 
 }
+
+userNutrientData = []
 
 const getNutrition = async function(sex, age, feet, inches, lbs, activityLvl) {
 
@@ -109,9 +111,29 @@ const getNutrition = async function(sex, age, feet, inches, lbs, activityLvl) {
         const response = await fetch(url, options);
         const result = await response.text();
         console.log(JSON.parse(result));
+        userNutrientData = JSON.parse(result);
+        //console.log(userNutrientData)
+        displayNutrition(JSON.parse(result))
+
     } catch (error) {
         console.error(error);
     }
+
+}
+
+const displayNutrition = function(data) {
+    console.log(data)
+    const cardContainer = document.createElement('div');
+    const cardList = document.createElement('ul');
+    cardList.setAttribute('id', 'listDiv');
+    for (let i = 0; i < data.length; i++) {
+        const nutrients = data[i];
+
+        
+    }
+
+    cardContainer.append(cardList)
+    nutrientDisplayEl.append(cardContainer)
 
 }
 
