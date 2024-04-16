@@ -6,19 +6,20 @@ const workoutDisplayEl = document.querySelector('#workoutDisplay');
 const nutrientFormEl = document.querySelector('#nutrient-form');
 const nutrientDisplayEl = document.querySelector('#nutrientDisplay');
 
+
 // might need an element to hold the workout input
 
 const workoutFormSubmitHandler = function(event) {
     event.preventDefault();
-
+    
     const workouts = workoutInputEl.value.trim();
-
+    
     if (workouts) {
         getWorkouts(workouts);
         console.log(workouts)
-
+        
         workoutInputEl.value = '';
-
+        
     } else {
         alert('add workout');
     }
@@ -30,8 +31,7 @@ let selectedWorkout = []
 const getWorkouts = function (muscle) {
     // need to change var for user input 
     //var muscle= 'biceps'
-
-
+    
     $.ajax({
         method: 'GET',
         // * Set PERMANENTLY to 'beginner'
@@ -57,16 +57,24 @@ const displayWorkout = function (data) {
     const cardList = document.createElement('ul');
     cardList.setAttribute('id', 'listDiv');
     for (let i = 0; i < data.length; i++) {
-        const element = data[i];
+        const workout = data[i];
         const cardItem = document.createElement('li');
-        cardItem.innerHTML = element.name
-        
+        cardItem.innerHTML = workout.name
+
+        const cardBody = document.createElement('div');
+        const cardEquip = document.createElement('p');
+        cardEquip.innerHTML = workout.equipment
+        console.log(cardEquip)
+        //cardItem.innerHTML = workout.instructions
+
+        cardBody.append(cardEquip)
+        cardItem.append(cardBody)
         cardList.append(cardItem)
     }
     cardContainer.append(cardList)
     workoutDisplayEl.append(cardContainer);
     
-    console.log(data)
+    //console.log(data)
 }
 
 
@@ -104,6 +112,7 @@ const getNutrition = async function(sex, age, feet, inches, lbs, activityLvl) {
     } catch (error) {
         console.error(error);
     }
+
 }
 
 userFormEl.addEventListener('submit', workoutFormSubmitHandler);
