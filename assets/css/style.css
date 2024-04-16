@@ -1,43 +1,43 @@
 :root {
-    --white: #fffefa;
-    --yellow: #e6c12e;
-    --grey: #4b4949;
+  --white: #fffefa;
+  --yellow: #e6c12e;
+  --grey: #4b4949;
 }
 
 * {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
 body {
-    background-color: var(--white);
+  background-color: var(--white);
 }
 
 header {
-    text-align: center;
-    padding: 25px;
-    background-color: var(--grey);
-    h1 {
-        color: var(--yellow);
-        font-size: 50px;
-        padding: 10px;
-    }
+  text-align: center;
+  padding: 25px;
+  background-color: var(--grey);
+  h1 {
+    color: var(--yellow);
+    font-size: 50px;
+    padding: 10px;
+  }
 
-    nav {
-        display: flex;
-        justify-content: space-around;
-        a {
-            color: var(--yellow);
-            font-size: 20px;
-            text-decoration: none;
-        }
+  nav {
+    display: flex;
+    justify-content: space-around;
+    a {
+      color: var(--yellow);
+      font-size: 20px;
+      text-decoration: none;
     }
-    /* border: 2px red solid; */
+  }
+  /* border: 2px red solid; */
 }
 
 .nav-btn {
-    color: var(--yellow);
+  color: var(--yellow);
 }
 
 .nav-btn:hover {
-    color: var(--white);
+  color: var(--white);
 }
