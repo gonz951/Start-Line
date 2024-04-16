@@ -12,7 +12,8 @@ const formSubmitHandler = function(event) {
     const workouts = workoutInputEl.value.trim();
 
     if (workouts) {
-        //getWorkouts(workouts);
+        getWorkouts(workouts);
+        console.log(workouts)
 
         workoutInputEl.value = '';
 
@@ -24,16 +25,17 @@ const formSubmitHandler = function(event) {
 
 
 
-const getWorkouts = function () {
-    var muscle= 'biceps'
+const getWorkouts = function (muscle) {
+    // need to change var for user input 
+    //var muscle= 'biceps'
 
     $.ajax({
         method: 'GET',
         url: 'https://api.api-ninjas.com/v1/exercises?muscle=' + muscle,
         headers: { 'X-Api-Key': '+WGKXajBz6Z4hpQa9XjQDg==8TIctngv8D6TWbxT'},
         contentType: 'application/json',
-        success: function(result) {
-            console.log(result);
+        success: function(result_data_json) {
+            console.log(result_data_json);
         },
         error: function ajaxError(jqXHR) {
             console.error('Error: ', jqXHR.responseText);
@@ -41,9 +43,9 @@ const getWorkouts = function () {
     });
 }
 
-const displayWorkout = function (result) {
+const displayWorkout = function (data) {
 
-    console.log(result)
+    console.log(data)
 }
 
 userFormEl.addEventListener('submit', formSubmitHandler);
