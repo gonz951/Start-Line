@@ -31,31 +31,38 @@
                     <form id="workout-form">
                         <select class="form-select" id="workout">
                             <option selected>Choose...</option>
+                            <option value="neck">Neck</option>
                             <option value="biceps">Biceps</option>
+                            <option value="chest">Chest</option>
+                            <option value="triceps">Triceps</option>
+                            <option value="forearms">Forearms</option>
                             <option value="abdominals">Abs</option>
                             <option value="calves">Calves</option>
-                            <option value="chest">Chest</option>
-                            <option value="forearms">Forearms</option>
                             <option value="glutes">Glutes</option>
-                            <option value="calves">Calves</option>
-                            <option value="calves">Calves</option>
+                            <option value="lower_back">Lower Back</option>
+                            <option value="middle_back">Middle Back</option>
                           </select>
                         <button id="workout-btn" type="submit">Search</button>
                     </form>
                     <section id="workoutDisplay">
-
+                        <!-- for workout stuff -->
                     </section>
             </div>
 
             <div id="cardNutrients">
                 <h1>Header</h1>
                 <form id="nutrient-form">
-                    <input placeholder="sex" id="sex">
+                    <select class="form-select" id="sex">
+                        <option selected>Choose...</option>
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                    </select>
                     <input placeholder="age" id="age">
                     <input placeholder="feet" id="feet">
                     <input placeholder="inches" id="inches">
                     <input placeholder="lbs" id="lbs">
                     <select class="form-select" id="activity-lvl">
+                        <option selected>Choose...</option>
                         <option value="Sedentary">Not active</option>
                         <option value="Low Active">Low Active</option>
                         <option value="Active">Active</option>
@@ -64,7 +71,7 @@
                     <button type="submit">Submit</button>
                 </form>
                 <section id="nutrientDisplay">
-
+                    <!-- for nutrient stuff -->
                 </section>
 
             </div>
