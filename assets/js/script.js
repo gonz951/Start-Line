@@ -4,6 +4,7 @@ const userFormEl = document.querySelector('#workout-form');
 const workoutInputEl = document.querySelector('#workout');
 const workoutDisplayEl = document.querySelector('#workoutDisplay');
 const nutrientFormEl = document.querySelector('#nutrient-form');
+const nutrientDisplayEl = document.querySelector('#nutrientDisplay');
 
 // might need an element to hold the workout input
 
@@ -84,13 +85,6 @@ const nutritionFormSubmitHandler = function(event) {
 }
 
 const getNutrition = async function(sex, age, feet, inches, lbs, activityLvl) {
-    // What needs to change:
-    // Sex input
-    // age value
-    // feet 
-    // inches
-    // lbs
-    // activity_level
 
     const url = `https://nutrition-calculator.p.rapidapi.com/api/nutrition-info?measurement_units=std&sex=${sex}&age_value=${age}&age_type=yrs&feet=${feet}&inches=${inches}&lbs=${lbs}&activity_level=${activityLvl}`;
     const options = {
