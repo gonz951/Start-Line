@@ -15,7 +15,7 @@
             <h1>
                 Start Line
             </h1 >
-            <nav>
+            <nav class="border-3 border-yellow-400">
                 <!-- *buttons for page navigation -->
                 <a href="#cardWorkouts" class="nav-btn">Workouts</a>
                 <a href="#cardSups" class="nav-btn">Supplements</a>
@@ -60,18 +60,22 @@
               </div>
             </div>
 
-            <div id="cardNutrients">
-                <h1>Header</h1>
+            <div class="border-3 border-yellow-400 mt-5 p-2 bg-gray-200/50" id="cardNutrients">
+                <h1 class="text-2xl text-black m-2">Get Nutrient Guide:</h1>
                 <form id="nutrient-form">
                     <select class="form-select" id="sex">
                         <option selected>Choose...</option>
                         <option value="female">Female</option>
                         <option value="male">Male</option>
                     </select>
-                    <input placeholder="age" id="age">
-                    <input placeholder="feet" id="feet">
-                    <input placeholder="inches" id="inches">
-                    <input placeholder="lbs" id="lbs">
+                    <label for="age">Age:</label>
+                    <input class="my-3 mr-3" placeholder=" age" id="age">
+                    <label for="feet">Height:</label>
+                    <input class="my-3" placeholder=" feet" id="feet">
+                    <label for="inches">+</label>
+                    <input class="my-3 mr-3" placeholder=" inches" id="inches">
+                    <label for="lbs">Weight:</label>
+                    <input class="my-3" placeholder=" lbs" id="lbs">
                     <select class="form-select" id="activity-lvl">
                         <option selected>Choose...</option>
                         <option value="Sedentary">Not active</option>
@@ -79,7 +83,7 @@
                         <option value="Active">Active</option>
                         <option value="Very Active">Very Active</option>
                     </select>
-                    <button type="submit">Submit</button>
+                    <button class="bg-yellow-400 hover:bg-yellow-500 rounded p-1 px-3 m-1" type="submit">Submit</button>
                 </form>
                 <section id="nutrientDisplay">
                     <!-- for nutrient stuff -->
