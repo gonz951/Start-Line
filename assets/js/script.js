@@ -82,6 +82,18 @@ const displayWorkout = function (data) {
 
 // Nutrition ===================
 
+function renderUserNutrition() {
+    const personalInfo = localStorage.getItem('personal-information');
+    console.log(personalInfo)
+
+    if (!personalInfo) {
+        return;
+    }
+}
+
+console.log(renderUserNutrition())
+
+
 const nutritionFormSubmitHandler = function(event) {
     event.preventDefault();
     const sex = document.getElementById('sex').value
@@ -136,20 +148,51 @@ const getNutrition = async function(sex, age, feet, inches, lbs, activityLvl) {
 const displayNutrition = function(data) {
     // ! NEED LOCAL STORAGE FUNCTIONS HERE
 
-    console.log(data.BMI_EER)
+    console.log(data)
 
     // * Things to take 
     // Macronutrients:
     // 0-4 
     const BMI = data.BMI_EER.BMI
+    const recCalories = data.BMI_EER['Estimated Daily Caloric Needs']
+    const carbohydrate = data.macronutrients_table['macronutrients-table'].at(1).at(1)
+    const totalFiber = data.macronutrients_table['macronutrients-table'].at(2).at(1)
+    const protein = data.macronutrients_table['macronutrients-table'].at(3).at(1)
+    const fat = data.macronutrients_table['macronutrients-table'].at(4).at(1)
+    //console.log(data.macronutrients_table['macronutrients-table'].at(1).at(1))
+    
 
     const ntrContainer = document.createElement('div');
     ntrContainer.setAttribute('id', 'ntrDiv');
     ntrBody = document.createElement('div')
     const cardBMI = document.createElement('h2')
-    cardBMI.textContent = `BMI: ${BMI}`
+    cardBMI.textContent = `Your BMI: ${BMI}`
+    const cardCal = document.createElement('h2')
+    cardCal.textContent = `Estimated Caloric Needs: ${recCalories}`
+    
+    const cardNeeds = document.createElement('ul')
+    const cardItems = document.createElement('li')
+    cardItems.textContent = `Recommended nutrients:`
+    const cardCarb = document.createElement('p')
+    cardCarb.textContent = `Carbohydrates: ${carbohydrate}`
+    const cardFiber = document.createElement('p')
+    cardFiber.textContent = `Total Fiber: ${totalFiber}`
+    const cardProtein = document.createElement('p')
+    cardProtein.textContent = `Protein: ${protein}`
+    const cardFat = document.createElement('p')
+    cardFat.textContent = `Fat: ${fat}`
+    
 
+    cardItems.append(cardCarb)
+    cardItems.append(cardFiber)
+    cardItems.append(cardProtein)
+    cardItems.append(cardFat)
+    cardNeeds.append(cardItems)
     ntrBody.append(cardBMI)
+    ntrBody.append(cardCal)
+    ntrBody.append(cardNeeds)
+
+
     ntrContainer.append(ntrBody)
     nutrientDisplayEl.append(ntrContainer)
 
