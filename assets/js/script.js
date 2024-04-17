@@ -82,7 +82,16 @@ const nutritionFormSubmitHandler = function(event) {
     console.log(sex)
     getNutrition(sex, age, feet, inches, lbs, activityLvl);
 
+let personalInfo = {
+    sex: sex,
+    age: age,
+    feet: feet,
+    inches: inches,
+    lbs: lbs,
+    activityLvl: activityLvl
+
 }
+localStorage.setItem('personal-information', JSON.stringify(personalInfo));
 
 const getNutrition = async function(sex, age, feet, inches, lbs, activityLvl) {
 
