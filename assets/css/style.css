@@ -54,3 +54,9 @@ header {
         border-radius: 5px;
     }
 }
+
+#ntrDiv {
+    h2 {
+        font-size: 25px;
+    }
+}
