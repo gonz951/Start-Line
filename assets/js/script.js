@@ -110,7 +110,7 @@ const getNutrition = async function(sex, age, feet, inches, lbs, activityLvl) {
     try {
         const response = await fetch(url, options);
         const result = await response.text();
-        console.log(JSON.parse(result));
+        //console.log(JSON.parse(result));
         userNutrientData = JSON.parse(result);
         //console.log(userNutrientData)
         displayNutrition(JSON.parse(result))
@@ -122,14 +122,21 @@ const getNutrition = async function(sex, age, feet, inches, lbs, activityLvl) {
 }
 
 const displayNutrition = function(data) {
-    console.log(data)
+    //console.log(data)
     const cardContainer = document.createElement('div');
     const cardList = document.createElement('ul');
     cardList.setAttribute('id', 'listDiv');
     for (let i = 0; i < data.length; i++) {
         const nutrients = data[i];
+        console.log(data)
+        const cardItem = document.createElement('li');
+        cardItem.innerHTML = nutrients.BMI_EER.BMI
+        console.log(carditem)
+        const cardBody = document.createElement('div');
 
-        
+
+
+        cardList.append(cardItem)
     }
 
     cardContainer.append(cardList)
