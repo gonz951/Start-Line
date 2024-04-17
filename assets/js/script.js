@@ -64,7 +64,8 @@ const displayWorkout = function (data) {
     cardContainer.append(cardList)
     workoutDisplayEl.append(cardContainer);
     
-    console.log(data)
+    localStorage.setItem('workout', JSON.stringify(data));
+
 }
 
 
@@ -79,8 +80,19 @@ const nutritionFormSubmitHandler = function(event) {
     const inches = document.getElementById('inches').value
     const lbs = document.getElementById('lbs').value
     const activityLvl = document.getElementById('activity-lvl').value
-    console.log(sex)
-    getNutrition(sex, age, feet, inches, lbs, activityLvl);
+    //getNutrition(sex, age, feet, inches, lbs, activityLvl); was this needed? Wanted to make sure before I removed
+
+    let personalInfo = {
+        sex: sex,
+        age: age,
+        feet: feet,
+        inches: inches,
+        lbs: lbs,
+        activityLvl: activityLvl
+    }
+    
+    
+    localStorage.setItem('personal-Information', JSON.stringify(personalInfo));
 
 }
 
@@ -102,6 +114,9 @@ const getNutrition = async function(sex, age, feet, inches, lbs, activityLvl) {
     } catch (error) {
         console.error(error);
     }
+
+    //localStorage.setItem('nutrition', JSON.stringify(result));
+   
 }
 
 userFormEl.addEventListener('submit', workoutFormSubmitHandler);
