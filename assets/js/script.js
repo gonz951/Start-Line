@@ -92,6 +92,7 @@ let personalInfo = {
 
 }
 localStorage.setItem('personal-information', JSON.stringify(personalInfo));
+}
 
 const getNutrition = async function(sex, age, feet, inches, lbs, activityLvl) {
 
