@@ -102,6 +102,7 @@ let personalInfo = {
 
 }
 localStorage.setItem('personal-information', JSON.stringify(personalInfo));
+}
 
 userNutrientData = []
 
