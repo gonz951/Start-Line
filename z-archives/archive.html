@@ -11,7 +11,6 @@
       crossorigin="anonymous"
     />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="./assets/css/contact.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Start Line</title>
     <link
@@ -30,15 +29,10 @@
         <a href="#cardLocation" class="nav-btn">Location</a>
         <a href="#cardWorkouts" class="nav-btn">Workouts</a>
         <a href="#cardSups" class="nav-btn">Supplements</a>
-        <a href="#" class="nav-btn pop_btn">Contact Us</a>
-      </nav>
-    </header>
-    <main>
-      <!-- *This is where the body will go -->
-
-      <div class="contact-container">
-        <div class="wrapper">
-          <form action="" class="form-contact">
+        <!-- <a href="#" class="nav-btn">Contact Us</a> -->
+        <button class="nav-btn pop_btn">Contanct Us Modal</button>
+        <div>
+          <form action="">
             <i class="fa-solid fa-circle-xmark close"></i>
             <h2>Contact Us</h2>
             <label for="name">Name</label>
@@ -56,7 +50,49 @@
             <button type="submit">SUBMIT</button>
           </form>
         </div>
-      </div>
+        <!-- <button
+          class="btn btn-primary px-4 py-2 fs-5 mt-5"
+          data-bs-toggle="modal"
+          data-bs-target="#contact-us"
+          id="contactButton"
+        >
+          Contact Us
+        </button> -->
+        <!-- Maybe add modal to 'Contact Us' -->
+        <!-- <div class="modal fade" tabindex="-1" id="contactModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <p>Modal body text goes here.</p>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn btn-primary">
+                  Save changes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </nav>
+    </header>
+    <main>
+      <!-- *This is where the body will go -->
 
       <div id="cardLocation">
         <h1>header</h1>
