@@ -92,7 +92,16 @@ const nutritionFormSubmitHandler = function(event) {
     const activityLvl = document.getElementById('activity-lvl').value
     getNutrition(sex, age, feet, inches, lbs, activityLvl);
 
+let personalInfo = {
+    sex: sex,
+    age: age,
+    feet: feet,
+    inches: inches,
+    lbs: lbs,
+    activityLvl: activityLvl
+
 }
+localStorage.setItem('personal-information', JSON.stringify(personalInfo));
 
 userNutrientData = []
 
@@ -122,25 +131,26 @@ const getNutrition = async function(sex, age, feet, inches, lbs, activityLvl) {
 }
 
 const displayNutrition = function(data) {
-    //console.log(data)
-    const cardContainer = document.createElement('div');
-    const cardList = document.createElement('ul');
-    cardList.setAttribute('id', 'listDiv');
+    console.log(data)
+    console.log(data.BMI_EER)
+    const ntrContainer = document.createElement('div');
+    const ntrList = document.createElement('ul');
+    ntrList.setAttribute('id', 'ntrDiv');
     for (let i = 0; i < data.length; i++) {
         const nutrients = data[i];
-        console.log(data)
-        const cardItem = document.createElement('li');
-        cardItem.innerHTML = nutrients.BMI_EER.BMI
-        console.log(carditem)
-        const cardBody = document.createElement('div');
+        console.log(nutrients)
+        const ntrItem = document.createElement('li');
+        const ntrBody = document.createElement('div');
+
+        ntrItem.innerHTML = nutrients.BMI_EER
 
 
 
-        cardList.append(cardItem)
+        ntrList.append(cardItem)
     }
 
-    cardContainer.append(cardList)
-    nutrientDisplayEl.append(cardContainer)
+    ntrContainer.append(ntrList)
+    nutrientDisplayEl.append(ntrContainer)
 
 }
 

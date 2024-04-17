@@ -17,7 +17,7 @@ header {
     padding: 25px;
     background-color: var(--grey);
     opacity: 95%;
-    
+
     h1 {
         color: var(--yellow);
         font-size: 50px;
@@ -45,4 +45,13 @@ header {
 
 .nav-btn:hover {
     color: var(--white);
+}
+
+#nutrient-form {
+    padding: 5px;
+    input {
+        padding: 5px;
+        margin: 10px;
+        border-radius: 5px;
+    }
 }
