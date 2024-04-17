@@ -105,7 +105,6 @@ const nutritionFormSubmitHandler = function(event) {
 }
 
 
-
 userNutrientData = []
 
 const getNutrition = async function(sex, age, feet, inches, lbs, activityLvl) {
