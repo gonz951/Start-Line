@@ -124,23 +124,21 @@ const getNutrition = async function(sex, age, feet, inches, lbs, activityLvl) {
 const displayNutrition = function(data) {
     console.log(data)
     console.log(data.BMI_EER)
+    const BMI = data.BMI_EER.BMI
+
+    // containing divs 
     const ntrContainer = document.createElement('div');
-    const ntrList = document.createElement('ul');
-    ntrList.setAttribute('id', 'ntrDiv');
-    for (let i = 0; i < data.length; i++) {
-        const nutrients = data[i];
-        console.log(nutrients)
-        const ntrItem = document.createElement('li');
-        const ntrBody = document.createElement('div');
+    ntrContainer.setAttribute('id', 'ntrDiv');
 
-        ntrItem.innerHTML = nutrients.BMI_EER
+    // start card content
+    const ntrBody = document.createElement('div');
+    const cardBMI = document.createElement('h2')
+    cardBMI.textContent = `BMI: ${BMI}`
 
 
-
-        ntrList.append(cardItem)
-    }
-
-    ntrContainer.append(ntrList)
+    // appends
+    ntrBody.append(cardBMI)
+    ntrContainer.append(ntrBody)
     nutrientDisplayEl.append(ntrContainer)
 
 }
