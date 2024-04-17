@@ -10,15 +10,15 @@ const nutrientDisplayEl = document.querySelector('#nutrientDisplay');
 
 const workoutFormSubmitHandler = function(event) {
     event.preventDefault();
-
+    
     const workouts = workoutInputEl.value.trim();
-
+    
     if (workouts) {
         getWorkouts(workouts);
         console.log(workouts)
-
+        
         workoutInputEl.value = '';
-
+        
     } else {
         alert('add workout');
     }
@@ -30,10 +30,11 @@ let selectedWorkout = []
 const getWorkouts = function (muscle) {
     // need to change var for user input 
     //var muscle= 'biceps'
-
+    
     $.ajax({
         method: 'GET',
-        url: 'https://api.api-ninjas.com/v1/exercises?muscle=' + muscle,
+        // * Set PERMANENTLY to 'beginner'
+        url: 'https://api.api-ninjas.com/v1/exercises?muscle=' + muscle + '&difficulty=beginner',
         headers: { 'X-Api-Key': '+WGKXajBz6Z4hpQa9XjQDg==8TIctngv8D6TWbxT'},
         contentType: 'application/json',
         success: function(result_data_json) {
@@ -49,27 +50,37 @@ const getWorkouts = function (muscle) {
 }
 
 const displayWorkout = function (data) {
-
-
     const cardContainer = document.createElement('div');
     const cardList = document.createElement('ul');
     cardList.setAttribute('id', 'listDiv');
-    for (let index = 0; index < data.length; index++) {
-        const element = data[index];
+    for (let i = 0; i < data.length; i++) {
+        const workout = data[i];
         const cardItem = document.createElement('li');
-        cardItem.innerHTML = element.name
-        
+        cardItem.innerHTML = workout.name
+
+        const cardBody = document.createElement('div');
+        const cardEquip = document.createElement('p');
+        cardEquip.innerHTML = workout.equipment
+        console.log(cardEquip)
+
+        // todo: need instructions to be hidden in an optional dropdown
+        const cardInstruct = document.createElement('p');
+        cardInstruct.innerHTML = workout.instructions
+
+        cardBody.append(cardEquip)
+        cardBody.append(cardInstruct)
+        cardItem.append(cardBody)
         cardList.append(cardItem)
     }
     cardContainer.append(cardList)
     workoutDisplayEl.append(cardContainer);
     
-    console.log(data)
+    //console.log(data)
 }
 
 
 
-// Nutrition 
+// Nutrition ===================
 
 const nutritionFormSubmitHandler = function(event) {
     event.preventDefault();
@@ -79,10 +90,11 @@ const nutritionFormSubmitHandler = function(event) {
     const inches = document.getElementById('inches').value
     const lbs = document.getElementById('lbs').value
     const activityLvl = document.getElementById('activity-lvl').value
-    console.log(sex)
     getNutrition(sex, age, feet, inches, lbs, activityLvl);
 
 }
+
+userNutrientData = []
 
 const getNutrition = async function(sex, age, feet, inches, lbs, activityLvl) {
 
@@ -98,10 +110,38 @@ const getNutrition = async function(sex, age, feet, inches, lbs, activityLvl) {
     try {
         const response = await fetch(url, options);
         const result = await response.text();
-        console.log(JSON.parse(result));
+        //console.log(JSON.parse(result));
+        userNutrientData = JSON.parse(result);
+        //console.log(userNutrientData)
+        displayNutrition(JSON.parse(result))
+
     } catch (error) {
         console.error(error);
     }
+
+}
+
+const displayNutrition = function(data) {
+    //console.log(data)
+    const cardContainer = document.createElement('div');
+    const cardList = document.createElement('ul');
+    cardList.setAttribute('id', 'listDiv');
+    for (let i = 0; i < data.length; i++) {
+        const nutrients = data[i];
+        console.log(data)
+        const cardItem = document.createElement('li');
+        cardItem.innerHTML = nutrients.BMI_EER.BMI
+        console.log(carditem)
+        const cardBody = document.createElement('div');
+
+
+
+        cardList.append(cardItem)
+    }
+
+    cardContainer.append(cardList)
+    nutrientDisplayEl.append(cardContainer)
+
 }
 
 userFormEl.addEventListener('submit', workoutFormSubmitHandler);
