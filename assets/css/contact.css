@@ -5,11 +5,9 @@
 }
 
 .pop_btn {
-  margin: 40px;
   border: none;
   color: var(--yellow);
-  font-size: 20px;
-  padding: 10px;
+  font-size: 30px;
 }
 
 .wrapper {
