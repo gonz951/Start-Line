@@ -92,7 +92,18 @@ const nutritionFormSubmitHandler = function(event) {
     const activityLvl = document.getElementById('activity-lvl').value
     getNutrition(sex, age, feet, inches, lbs, activityLvl);
 
+    let personalInfo = {
+        sex: sex,
+        age: age,
+        feet: feet,
+        inches: inches,
+        lbs: lbs,
+        activityLvl: activityLvl
+    }
+    
+    localStorage.setItem('personal-information', JSON.stringify(personalInfo));
 }
+
 
 userNutrientData = []
 
@@ -111,9 +122,9 @@ const getNutrition = async function(sex, age, feet, inches, lbs, activityLvl) {
         const response = await fetch(url, options);
         const result = await response.text();
         //console.log(JSON.parse(result));
-        userNutrientData = JSON.parse(result);
+        userNutrientData = result;
         //console.log(userNutrientData)
-        displayNutrition(JSON.parse(result))
+        displayNutrition(JSON.parse(result));
 
     } catch (error) {
         console.error(error);
@@ -121,22 +132,29 @@ const getNutrition = async function(sex, age, feet, inches, lbs, activityLvl) {
 
 }
 
+
 const displayNutrition = function(data) {
-    console.log(data)
+
+    if (!data) {
+        let data = storedData
+        console.log(data)
+    } else {
+
+    }
+
     console.log(data.BMI_EER)
+
+    // * Things to take 
+    // Macronutrients:
+    // 0-4 
     const BMI = data.BMI_EER.BMI
 
-    // containing divs 
     const ntrContainer = document.createElement('div');
     ntrContainer.setAttribute('id', 'ntrDiv');
-
-    // start card content
-    const ntrBody = document.createElement('div');
+    ntrBody = document.createElement('div')
     const cardBMI = document.createElement('h2')
     cardBMI.textContent = `BMI: ${BMI}`
 
-
-    // appends
     ntrBody.append(cardBMI)
     ntrContainer.append(ntrBody)
     nutrientDisplayEl.append(ntrContainer)
