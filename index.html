@@ -13,11 +13,12 @@
     style="background-image: url(https://wallpapers.com/images/hd/workout-background-2880-x-1800-gxvpjdm1sm2n6zwi.jpg);";>
         <header >
             <h1>
-                Start Line
+                Start - Line
             </h1 >
             <nav>
                 <!-- *buttons for page navigation -->
                 <a href="#cardWorkouts" class="nav-btn">Workouts</a>
+                <a href="#cardNutrients" class="nav-btn">Nutrients</a>
                 <a href="#cardSups" class="nav-btn">Supplements</a>
                 <a href="#" class="nav-btn">Contact Us</a>
                 <!-- Maybe add modal to 'Contact Us' -->
@@ -27,7 +28,6 @@
         <main class="container grid grid-cols-1">
             <!-- *This is where the body will go -->
   
-            
             <div id="cardWorkouts">
             <div class="border-3 border-yellow-400 mt-5 p-2 bg-gray-200/50" id="workouts">
                    <h1 class="text-2xl text-black m-2">Workouts:</h1>
@@ -61,35 +61,38 @@
             </div>
 
             <div id="cardNutrients">
-                <h1>Header</h1>
-                <form id="nutrient-form">
-                    <select class="form-select" id="sex">
-                        <option selected>Choose...</option>
-                        <option value="female">Female</option>
-                        <option value="male">Male</option>
-                    </select>
-                    <input placeholder="age" id="age">
-                    <input placeholder="feet" id="feet">
-                    <input placeholder="inches" id="inches">
-                    <input placeholder="lbs" id="lbs">
-                    <select class="form-select" id="activity-lvl">
-                        <option selected>Choose...</option>
-                        <option value="Sedentary">Not active</option>
-                        <option value="Low Active">Low Active</option>
-                        <option value="Active">Active</option>
-                        <option value="Very Active">Very Active</option>
-                    </select>
-                    <button type="submit">Submit</button>
-                </form>
-                <section id="nutrientDisplay">
-                    <!-- for nutrient stuff -->
-                </section>
+                <div class="border-3 border-yellow-400 mt-5 p-2 bg-gray-200/50">
+                    <h1 class="text-2xl text-black m-2">Nutrients</h1>
+                    <form id="nutrient-form">
+                        <select class="form-select" id="sex">
+                            <option selected>Choose...</option>
+                            <option value="female">Female</option>
+                            <option value="male">Male</option>
+                        </select>
+                        <input placeholder="age" id="age">
+                        <input placeholder="feet" id="feet">
+                        <input placeholder="inches" id="inches">
+                        <input placeholder="lbs" id="lbs">
+                        <select class="form-select" id="activity-lvl">
+                            <option selected>Choose...</option>
+                            <option value="Sedentary">Not active</option>
+                            <option value="Low Active">Low Active</option>
+                            <option value="Active">Active</option>
+                            <option value="Very Active">Very Active</option>
+                        </select>
+                        <button class="bg-yellow-400 hover:bg-yellow-500 rounded p-1 px-3 m-1" type="submit">Submit</button>
+                    </form>
+                    <section id="nutrientDisplay">
+                        <!-- for nutrient stuff -->
+                        help
+                    </section>
+                </div>
             </div>
             
             
             <div class=" border-3 border-yellow-400 mt-5 p-2 bg-gray-200/50" id="cardSups">
-                <h1 class="text-2xl text-black m-2">Supliments:</h1>
-                    <form action="">
+                <h1 class="text-2xl text-black m-2">Supplements:</h1>
+                    <form>
                         <input class="border-2 border-gray-500 px-1 m-2" type="text" placeholder="Search Supliments">
                         <button class="bg-yellow-400 hover:bg-yellow-500 rounded p-1 px-3 m-1" id="sups-btn" type="submit">Search</button>
                     </form>
