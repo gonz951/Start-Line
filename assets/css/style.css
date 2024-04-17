@@ -16,11 +16,13 @@ header {
     text-align: center;
     padding: 25px;
     background-color: var(--grey);
-    
+    opacity: 95%;
     h1 {
         color: var(--yellow);
         font-size: 50px;
         padding: 10px;
+        text-shadow: #000000 6px 6px 1px;
+        letter-spacing: 6px;
     }
 
     nav {
@@ -30,6 +32,7 @@ header {
             color: var(--yellow);
             font-size: 20px;
             text-decoration: none;
+            text-shadow: #000000 6px 6px 1px;
         }
     }
     /* border: 2px red solid; */
@@ -41,4 +44,13 @@ header {
 
 .nav-btn:hover {
     color: var(--white);
+}
+
+#nutrient-form {
+    padding: 5px;
+    input {
+        padding: 5px;
+        margin: 10px;
+        border-radius: 5px;
+    }
 }
