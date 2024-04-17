@@ -120,6 +120,34 @@ const getNutrition = async function(sex, age, feet, inches, lbs, activityLvl) {
     } catch (error) {
         console.error(error);
     }
+<<<<<<< HEAD
+=======
+
+}
+
+const displayNutrition = function(data) {
+    console.log(data)
+    console.log(data.BMI_EER)
+    const ntrContainer = document.createElement('div');
+    const ntrList = document.createElement('ul');
+    ntrList.setAttribute('id', 'ntrDiv');
+    for (let i = 0; i < data.length; i++) {
+        const nutrients = data[i];
+        console.log(nutrients)
+        const ntrItem = document.createElement('li');
+        const ntrBody = document.createElement('div');
+
+        ntrItem.innerHTML = nutrients.BMI_EER
+
+
+
+        ntrList.append(cardItem)
+    }
+
+    ntrContainer.append(ntrList)
+    nutrientDisplayEl.append(ntrContainer)
+
+>>>>>>> 1f206fba095d6e70bad8971a6841aca837f96f20
 }
 
 userFormEl.addEventListener('submit', workoutFormSubmitHandler);
