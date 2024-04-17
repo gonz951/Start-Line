@@ -134,13 +134,7 @@ const getNutrition = async function(sex, age, feet, inches, lbs, activityLvl) {
 
 
 const displayNutrition = function(data) {
-
-    if (!data) {
-        let data = storedData
-        console.log(data)
-    } else {
-
-    }
+    // ! NEED LOCAL STORAGE FUNCTIONS HERE
 
     console.log(data.BMI_EER)
 
