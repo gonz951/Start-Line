@@ -179,6 +179,16 @@ const displayNutrition = function(data) {
     const protein = data.macronutrients_table['macronutrients-table'].at(3).at(1)
     const fat = data.macronutrients_table['macronutrients-table'].at(4).at(1)
     //console.log(data.macronutrients_table['macronutrients-table'].at(1).at(1))
+
+    const nutrientInfo = {
+        BMI: BMI,
+        recCalories: recCalories,
+        carbohydrate: carbohydrate,
+        totalFiber: totalFiber,
+        protein: protein,
+        fat: fat
+    }
+    localStorage.setItem("nutrient-information", JSON.stringify(nutrientInfo))
     
 
     const ntrContainer = document.createElement('div');
