@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: var(--white);
+    background-color: #000000;
 }
 
 header {
@@ -17,6 +17,7 @@ header {
     padding: 25px;
     background-color: var(--grey);
     opacity: 95%;
+
     h1 {
         color: var(--yellow);
         font-size: 50px;
@@ -30,7 +31,7 @@ header {
         justify-content: space-around;
         a {
             color: var(--yellow);
-            font-size: 20px;
+            font-size: 30px;
             text-decoration: none;
             text-shadow: #000000 6px 6px 1px;
         }
@@ -52,5 +53,39 @@ header {
         padding: 5px;
         margin: 10px;
         border-radius: 5px;
+    }
+}
+
+#listDiv {
+    h2 {
+        font-size: 23px;
+        margin-bottom: 5px;
+    }
+    h3 {
+        font-size: 20px;
+        margin-left: 20px;
+        margin-bottom: 3px;
+    }
+}
+
+#dropDiv {
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+#ntrDiv {
+    h2 {
+        font-size: 23px;
+        margin-bottom: 3px;
+    }
+
+    h3 {
+        font-size: 20px;
+        margin-bottom: 3px;
+    }
+
+    p {
+        font-size: 18px;
+        margin-left: 20px;
     }
 }
