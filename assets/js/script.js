@@ -94,7 +94,8 @@ const displayWorkout = function (data) {
     cardContainer.append(cardList)
     workoutDisplayEl.append(cardContainer);
     
-    //console.log(data)
+    localStorage.setItem('workout', JSON.stringify(data));
+
 }
 
 
@@ -121,6 +122,7 @@ const nutritionFormSubmitHandler = function(event) {
     const inches = document.getElementById('inches').value
     const lbs = document.getElementById('lbs').value
     const activityLvl = document.getElementById('activity-lvl').value
+    console.log(sex)
     getNutrition(sex, age, feet, inches, lbs, activityLvl);
 
     let personalInfo = {
@@ -160,6 +162,8 @@ const getNutrition = async function(sex, age, feet, inches, lbs, activityLvl) {
     } catch (error) {
         console.error(error);
     }
+<<<<<<< HEAD
+=======
 
 }
 
@@ -229,6 +233,7 @@ const displayNutrition = function(data) {
     ntrContainer.append(ntrBody)
     nutrientDisplayEl.append(ntrContainer)
 
+>>>>>>> 1f206fba095d6e70bad8971a6841aca837f96f20
 }
 
 userFormEl.addEventListener('submit', workoutFormSubmitHandler);
