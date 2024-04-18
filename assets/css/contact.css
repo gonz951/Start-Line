@@ -1,0 +1,78 @@
+.contact-container {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  position: relative;
+  margin: 0;
+}
+
+.pop_btn {
+  border: none;
+  color: var(--yellow);
+  font-size: 30px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 2;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  display: none;
+}
+
+.form-contact {
+  background-color: var(--yellow);
+  color: var(--grey);
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 400px;
+  padding: 42px 24px 5px 24px;
+  border-radius: 5px;
+}
+
+.form-contact label {
+  /* font-weight: 900; */
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.form-contact #message {
+  border-radius: 5px;
+}
+
+.form-contact .close {
+  margin-left: auto !important;
+  margin: 2px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: -22px;
+}
+
+.form-contact h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-contact input {
+  margin-bottom: 20px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+}
+
+.form-contact button {
+  height: 30px;
+  margin: 30px auto;
+  padding: 0 30px !important;
+  border: none;
+  font-size: 16px;
+  background-color: var(--grey);
+  color: var(--yellow);
+  letter-spacing: 2px;
+  border-radius: 5px;
+}
