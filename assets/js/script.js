@@ -189,6 +189,8 @@ const displayNutrition = function(data) {
         fat: fat
     }
     localStorage.setItem("nutrient-information", JSON.stringify(nutrientInfo))
+
+
     
 
     const ntrContainer = document.createElement('div');
