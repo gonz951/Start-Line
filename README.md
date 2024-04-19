@@ -17,15 +17,14 @@ No installation needed! Just the link: https://gonz951.github.io/Start-Line/
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+The main page itself doesn't have much going on, however,
+![main page](assets/images/Screenshot%20(21).png)
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. 
+The 'Contact Us' button will present a modal
+![contact button](assets/images/contact-screenshot1.png)
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
-
-
+The modal itself takes in your name, email, phone, and an optional message to contact us. 
+![contact modal](assets/images/contact-screenshot2.png)
 
 
 ## Credits
