@@ -18,7 +18,7 @@ No installation needed! Just the link: https://gonz951.github.io/Start-Line/
 ## Usage
 
 The main page itself doesn't have much going on, however,
-![main page](assets/images/Screenshot%20(21).png)
+![main page](assets/images/Screenshot%20(23).png)
 
 The 'Contact Us' button will present a modal
 ![contact button](assets/images/contact-screenshot1.png)
