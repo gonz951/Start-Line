@@ -53,34 +53,66 @@ const displayWorkout = function (data) {
     const cardContainer = document.createElement('div');
     const cardList = document.createElement('ul');
     cardList.setAttribute('id', 'listDiv');
+    
+    // Muscle name at beginning
+    const muscle = data.at(0).muscle
+    const cardMuscle = document.createElement('h2')
+    cardMuscle.textContent = `For ${muscle}:`
+    
+    cardList.append(cardMuscle);
     for (let i = 0; i < data.length; i++) {
         const workout = data[i];
         const cardItem = document.createElement('li');
-        cardItem.innerHTML = workout.name
+        cardItem.setAttribute('class', 'border-3 border-yellow-400 mt-2 p-2 bg-gray-200/50')
 
-        const cardBody = document.createElement('div');
-        const cardEquip = document.createElement('p');
-        cardEquip.innerHTML = workout.equipment
-        console.log(cardEquip)
+        // name of workout
+        const title = workout.name
+        const cardName = document.createElement('h3');
+        cardName.textContent = `Workout Name: ${title}`
 
+        // equipment needed
+        const equipment = workout.equipment
+        const cardEquip = document.createElement('h3');
+        cardEquip.textContent = `Equipment needed: ${equipment}`
+
+        // DROP DOWN FOR INSTRUCTIONS
         // todo: need instructions to be hidden in an optional dropdown
+        const cardDrop = document.createElement('div');
+        // 
+        const instructions = workout.instructions
         const cardInstruct = document.createElement('p');
-        cardInstruct.innerHTML = workout.instructions
+        cardInstruct.textContent = `${instructions}`
+        //cardDrop.textContent = `${cardInstruct}`
 
-        cardBody.append(cardEquip)
-        cardBody.append(cardInstruct)
-        cardItem.append(cardBody)
+        // appending everything together in order
+        cardItem.append(cardName)
+        cardItem.append(cardEquip)
+        cardItem.append(cardDrop)
+        cardItem.append(cardInstruct)
         cardList.append(cardItem)
     }
     cardContainer.append(cardList)
     workoutDisplayEl.append(cardContainer);
     
-    //console.log(data)
+    localStorage.setItem('workout', JSON.stringify(data));
+
 }
 
 
 
 // Nutrition ===================
+
+function renderUserNutrition() {
+    const personalInfo = localStorage.getItem('personal-information');
+    console.log(personalInfo)
+
+    if (!personalInfo) {
+        return;
+    }
+}
+
+console.log(renderUserNutrition())
+
 
 const nutritionFormSubmitHandler = function(event) {
     event.preventDefault();
@@ -90,6 +122,7 @@ const nutritionFormSubmitHandler = function(event) {
     const inches = document.getElementById('inches').value
     const lbs = document.getElementById('lbs').value
     const activityLvl = document.getElementById('activity-lvl').value
+    console.log(sex)
     getNutrition(sex, age, feet, inches, lbs, activityLvl);
 
     let personalInfo = {
@@ -129,36 +162,78 @@ const getNutrition = async function(sex, age, feet, inches, lbs, activityLvl) {
     } catch (error) {
         console.error(error);
     }
+<<<<<<< HEAD
+=======
 
 }
 
 
 const displayNutrition = function(data) {
+    // ! NEED LOCAL STORAGE FUNCTIONS HERE
 
-    if (!data) {
-        let data = storedData
-        console.log(data)
-    } else {
-
-    }
-
-    console.log(data.BMI_EER)
+    console.log(data)
 
     // * Things to take 
     // Macronutrients:
     // 0-4 
     const BMI = data.BMI_EER.BMI
+    const recCalories = data.BMI_EER['Estimated Daily Caloric Needs']
+    const carbohydrate = data.macronutrients_table['macronutrients-table'].at(1).at(1)
+    const totalFiber = data.macronutrients_table['macronutrients-table'].at(2).at(1)
+    const protein = data.macronutrients_table['macronutrients-table'].at(3).at(1)
+    const fat = data.macronutrients_table['macronutrients-table'].at(4).at(1)
+    //console.log(data.macronutrients_table['macronutrients-table'].at(1).at(1))
+
+    const nutrientInfo = {
+        BMI: BMI,
+        recCalories: recCalories,
+        carbohydrate: carbohydrate,
+        totalFiber: totalFiber,
+        protein: protein,
+        fat: fat
+    }
+    localStorage.setItem("nutrient-information", JSON.stringify(nutrientInfo))
+
+
+    
 
     const ntrContainer = document.createElement('div');
     ntrContainer.setAttribute('id', 'ntrDiv');
+    ntrContainer.setAttribute('class', 'border-3 border-yellow-400 mt-2 p-2 bg-gray-200/50')
     ntrBody = document.createElement('div')
     const cardBMI = document.createElement('h2')
-    cardBMI.textContent = `BMI: ${BMI}`
-
+    cardBMI.textContent = `Your BMI: ${BMI}`
+    const cardCal = document.createElement('h2')
+    cardCal.textContent = `Estimated Caloric Needs: ${recCalories}`
+    
+    const cardNeeds = document.createElement('ul')
+    const cardItems = document.createElement('li')
+    const cardRecc = document.createElement('h3')
+    cardRecc.textContent = `Recommended nutrients:`
+    const cardCarb = document.createElement('p')
+    cardCarb.textContent = `Carbohydrates: ${carbohydrate}`
+    const cardFiber = document.createElement('p')
+    cardFiber.textContent = `Total Fiber: ${totalFiber}`
+    const cardProtein = document.createElement('p')
+    cardProtein.textContent = `Protein: ${protein}`
+    const cardFat = document.createElement('p')
+    cardFat.textContent = `Fat: ${fat}`
+    
+    cardItems.append(cardRecc)
+    cardItems.append(cardCarb)
+    cardItems.append(cardFiber)
+    cardItems.append(cardProtein)
+    cardItems.append(cardFat)
+    cardNeeds.append(cardItems)
     ntrBody.append(cardBMI)
+    ntrBody.append(cardCal)
+    ntrBody.append(cardNeeds)
+
+
     ntrContainer.append(ntrBody)
     nutrientDisplayEl.append(ntrContainer)
 
+>>>>>>> 1f206fba095d6e70bad8971a6841aca837f96f20
 }
 
 userFormEl.addEventListener('submit', workoutFormSubmitHandler);
