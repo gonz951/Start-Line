@@ -162,8 +162,6 @@ const getNutrition = async function(sex, age, feet, inches, lbs, activityLvl) {
     } catch (error) {
         console.error(error);
     }
-<<<<<<< HEAD
-=======
 
 }
 
@@ -184,7 +182,7 @@ const displayNutrition = function(data) {
     const fat = data.macronutrients_table['macronutrients-table'].at(4).at(1)
     //console.log(data.macronutrients_table['macronutrients-table'].at(1).at(1))
 
-    const nutrientInfo = {
+    let nutrientInfo = {
         BMI: BMI,
         recCalories: recCalories,
         carbohydrate: carbohydrate,
@@ -194,8 +192,6 @@ const displayNutrition = function(data) {
     }
     localStorage.setItem("nutrient-information", JSON.stringify(nutrientInfo))
 
-
-    
 
     const ntrContainer = document.createElement('div');
     ntrContainer.setAttribute('id', 'ntrDiv');
@@ -233,7 +229,6 @@ const displayNutrition = function(data) {
     ntrContainer.append(ntrBody)
     nutrientDisplayEl.append(ntrContainer)
 
->>>>>>> 1f206fba095d6e70bad8971a6841aca837f96f20
 }
 
 userFormEl.addEventListener('submit', workoutFormSubmitHandler);
