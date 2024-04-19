@@ -26,6 +26,14 @@ The 'Contact Us' button will present a modal
 The modal itself takes in your name, email, phone, and an optional message to contact us. 
 ![contact modal](assets/images/contact-screenshot2.png)
 
+The 'workout' dropdown lets you pick whichever muscle you want to work on,
+![workout dropdown](assets/images/Screenshot%20(22).png)
+
+and will present workouts relevant to that part of the body
+![workouts](assets/images/Screenshot%20(17).png)
+
+As for the nutrient's guide: The inputs will take in your information and use it to generate a guide. The guide itself will show you your estimated BMI, the calories you need per day, and nutrients you'll need.
+![nutrients guide](assets/images/Screenshot%20(20).png)
 
 ## Credits
 
